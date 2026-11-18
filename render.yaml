@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: gitignore-generator
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm ci --no-bin-links && npm run build
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
